@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f5f7fb;
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .enroll-card {
+      border-radius: 18px;
+      border: none;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .course-img {
+      height: 160px;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    .badge-free {
+      background-color: #dcfce7;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .info-item i {
+      color: #4f46e5;
+      margin-right: 6px;
+    }
+
+    .note-box {
+      background-color: #eef2ff;
+      border-left: 4px solid #4f46e5;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      background: #ffffff;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, .05);
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar .nav-link {
+      color: #374151;
+      border-radius: 10px;
+      margin: 4px 12px;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    /* Hover */
+    .sidebar .nav-link:hover {
+      background: #f1f5ff;
+      color: #4f46e5;
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+    }
+
+    .sidebar .nav-link i {
+      margin-right: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .sidebar .nav-link:hover i {
+      transform: scale(1.1);
+    }
+
+    /* Left border effect */
+    .sidebar .nav-link::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 60%;
+      background: #4f46e5;
+      border-radius: 0 4px 4px 0;
+      transition: width 0.25s ease;
+    }
+
+    .sidebar .nav-link:hover::before {
+      width: 4px;
+    }
+
+    /* Active */
+    .sidebar .nav-link.active {
+      background: linear-gradient(90deg, #eef2ff, #f8faff);
+      color: #4f46e5;
+    }
+
+    .sidebar .nav-link.active::before {
+      width: 4px;
+    }
+
+    /* ===== Header ===== */
+    .topbar {
+      height: 64px;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+      margin-left: 260px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search-input {
+      max-width: 320px;
+    }
+
+    /* ===== Content ===== */
+    .content {
+      margin-left: 260px;
+      margin-top: 0px;
+      padding: 24px;
+    }
+
+    /* Avatar */
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #4f46e5;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+
+    <div class="p-3 fw-bold fs-5 text-primary">
+      <img width='80' src='project.png' class='me-2'></img> SkillPilot
+    </div>
+
+
+    <nav class="nav flex-column" id="sidebarMenu">
+
+      <a class="nav-link" href="dashboard.html">
+        <i class="bi bi-speedometer2"></i> Dashboard
+      </a>
+
+      <a class="nav-link active" href="courses.html">
+        <i class="bi bi-book"></i> Courses
+      </a>
+
+      <a class="nav-link" href="recommendedCourses.html">
+        <i class="bi bi-stars"></i> Recommended
+      </a>
+
+      <a class="nav-link" href="favoriteCourses.html">
+        <i class="bi bi-heart"></i> Favorite
+      </a>
+      
+      <a class="nav-link" href="courseHistory.html">
+        <i class="bi bi-clock-history"></i> My Enrollment
+      </a>
+
+      <a class="nav-link" href="certificates.html">
+        <i class="bi bi-patch-check"></i> Certificates
+      </a>
+
+      <a class="nav-link" href="notifications.html">
+        <i class="bi bi-bell"></i> Notifications
+      </a>
+
+      <a class="nav-link" href="profile.html">
+        <i class="bi bi-person-circle"></i> Profile
+      </a>
+
+    </nav>
+
+
+    <!-- Account -->
+    <div class="mt-auto p-3 border-top d-flex align-items-center gap-3">
+      <div class="avatar">SP</div>
+      <div>
+        <div class="fw-semibold">Admin User</div>
+        <small class="text-muted">admin@tailpanel.com</small>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Header -->
+  <div class="topbar">
+    <input class="form-control search-input" placeholder="Search...">
+
+    <div class="d-flex align-items-center gap-3">
+      <i class="bi bi-gear fs-5"></i>
+      <i class="bi bi-bell fs-5"></i>
+      <div class="avatar">SP</div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="container py-1">
+
+      <!-- Header -->
+      <div class="mb-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-2">
+            <li class="breadcrumb-item"><a href="courses.html">Courses</a></li>
+            <li class="breadcrumb-item active">Confirm Enrollment</li>
+          </ol>
+        </nav>
+        <h3 class="fw-semibold">Confirm Course Enrollment</h3>
+      </div>
+
+      <!-- Main Card -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+          <div class="card enroll-card p-4">
+
+            <!-- Course Preview -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-5">
+                <img src="https://picsum.photos/600/400?random=1" class="w-100 course-img" alt="Course Image">
+              </div>
+              <div class="col-md-7">
+                <span class="badge badge-free mb-2">Free Course</span>
+                <h4 class="fw-bold mb-1">JavaScript Fundamentals</h4>
+                <p class="text-muted mb-1">Instructor: <strong>John Doe</strong></p>
+                <p class="text-muted mb-2">
+                  Category: Development
+                </p>
+                <p class="text-muted small">
+                  Learn the core concepts of JavaScript and build a strong foundation for modern web development.
+                </p>
+              </div>
+            </div>
+
+            <!-- Enrollment Details -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6 info-item">
+                <i class="bi bi-calendar-event"></i>
+                Enrollment Date: <strong>20 April 2026</strong>
+              </div>
+              <div class="col-md-6 info-item">
+                <i class="bi bi-cash"></i>
+                Price: <strong>Free</strong>
+              </div>
+              <div class="col-md-6 info-item">
+                <i class="bi bi-clock"></i>
+                Duration: <strong>12 Hours</strong>
+              </div>
+              <div class="col-md-6 info-item">
+                <i class="bi bi-bar-chart"></i>
+                Level: <strong>Beginner</strong>
+              </div>
+            </div>
+
+            <!-- Important Notes -->
+            <div class="note-box mb-4">
+              <strong>Important:</strong>
+              <p class="mb-0 text-muted small">
+                This course includes lifetime access and a certificate upon completion.
+                You can start learning immediately after enrollment.
+              </p>
+            </div>
+
+            <!-- Terms Agreement -->
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="agreeTerms">
+              <label class="form-check-label" for="agreeTerms">
+                I agree to the <a href="#" target="_blank">Terms & Conditions</a>
+              </label>
+            </div>
+
+            <!-- Actions -->
+            <div class="d-flex gap-2">
+              <button id="confirmBtn" class="btn btn-primary flex-fill" disabled>
+                <span id="btnText">Confirm Enroll</span>
+                <span id="btnSpinner" class="spinner-border spinner-border-sm d-none"></span>
+              </button>
+              <button class="btn btn-outline-secondary flex-fill" onclick='document.location.href="courses.html"'>
+                Cancel
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Toast -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="successToast" class="toast align-items-center text-bg-success" role="alert">
+      <div class="d-flex">
+        <div class="toast-body">
+          🎉 Enrollment successful! You can start learning now.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Logic -->
+  <script>
+    const checkbox = document.getElementById("agreeTerms");
+    const confirmBtn = document.getElementById("confirmBtn");
+    const btnText = document.getElementById("btnText");
+    const btnSpinner = document.getElementById("btnSpinner");
+
+    checkbox.addEventListener("change", () => {
+      confirmBtn.disabled = !checkbox.checked;
+    });
+
+    confirmBtn.addEventListener("click", () => {
+      btnText.textContent = "Processing...";
+      btnSpinner.classList.remove("d-none");
+      confirmBtn.disabled = true;
+
+      setTimeout(() => {
+        btnText.textContent = "Confirm Enroll";
+        btnSpinner.classList.add("d-none");
+
+        const toast = new bootstrap.Toast(document.getElementById("successToast"));
+        toast.show();
+      }, 1500);
+    });
+  </script>
+
+
+  <!-- JS: Active Menu -->
+  <script>
+    document.querySelectorAll('#sidebarMenu .nav-link').forEach(link => {
+      link.addEventListener('click', function () {
+        document.querySelectorAll('#sidebarMenu .nav-link')
+          .forEach(el => el.classList.remove('active'));
+
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+
+</html>

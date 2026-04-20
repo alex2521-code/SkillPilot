@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f5f7fb;
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .notification-card {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    .notification-item {
+      padding: 16px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+
+    .unread {
+      background-color: #eef2ff;
+    }
+
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .icon-course {
+      background: #4f46e5;
+    }
+
+    .icon-alert {
+      background: #ef4444;
+    }
+
+    .icon-update {
+      background: #22c55e;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      background: #ffffff;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, .05);
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar .nav-link {
+      color: #374151;
+      border-radius: 10px;
+      margin: 4px 12px;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    /* Hover */
+    .sidebar .nav-link:hover {
+      background: #f1f5ff;
+      color: #4f46e5;
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+    }
+
+    .sidebar .nav-link i {
+      margin-right: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .sidebar .nav-link:hover i {
+      transform: scale(1.1);
+    }
+
+    /* Left border effect */
+    .sidebar .nav-link::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 60%;
+      background: #4f46e5;
+      border-radius: 0 4px 4px 0;
+      transition: width 0.25s ease;
+    }
+
+    .sidebar .nav-link:hover::before {
+      width: 4px;
+    }
+
+    /* Active */
+    .sidebar .nav-link.active {
+      background: linear-gradient(90deg, #eef2ff, #f8faff);
+      color: #4f46e5;
+    }
+
+    .sidebar .nav-link.active::before {
+      width: 4px;
+    }
+
+    /* ===== Header ===== */
+    .topbar {
+      height: 64px;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+      margin-left: 260px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search-input {
+      max-width: 320px;
+    }
+
+    /* ===== Content ===== */
+    .content {
+      margin-left: 260px;
+      margin-top: 0px;
+      padding: 24px;
+    }
+
+    /* Avatar */
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #4f46e5;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+
+    <div class="p-3 fw-bold fs-5 text-primary">
+      <img width='80' src='project.png' class='me-2'></img> SkillPilot
+    </div>
+
+
+    <nav class="nav flex-column" id="sidebarMenu">
+
+      <a class="nav-link" href="dashboard.html">
+        <i class="bi bi-speedometer2"></i> Dashboard
+      </a>
+
+      <a class="nav-link" href="courses.html">
+        <i class="bi bi-book"></i> Courses
+      </a>
+
+      <a class="nav-link" href="recommendedCourses.html">
+        <i class="bi bi-stars"></i> Recommended
+      </a>
+
+      <a class="nav-link" href="favoriteCourses.html">
+        <i class="bi bi-heart"></i> Favorite
+      </a>
+      
+      <a class="nav-link" href="courseHistory.html">
+        <i class="bi bi-clock-history"></i> My Enrollment
+      </a>
+
+      <a class="nav-link" href="certificates.html">
+        <i class="bi bi-patch-check"></i> Certificates
+      </a>
+
+      <a class="nav-link active" href="notifications.html">
+        <i class="bi bi-bell"></i> Notifications
+      </a>
+
+      <a class="nav-link" href="profile.html">
+        <i class="bi bi-person-circle"></i> Profile
+      </a>
+
+    </nav>
+
+
+    <!-- Account -->
+    <div class="mt-auto p-3 border-top d-flex align-items-center gap-3">
+      <div class="avatar">SP</div>
+      <div>
+        <div class="fw-semibold">Admin User</div>
+        <small class="text-muted">admin@tailpanel.com</small>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Header -->
+  <div class="topbar">
+    <input class="form-control search-input" placeholder="Search...">
+
+    <div class="d-flex align-items-center gap-3">
+      <i class="bi bi-gear fs-5"></i>
+      <i class="bi bi-bell fs-5"></i>
+      <div class="avatar">SP</div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="container py-1">
+
+      <!-- Header -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-semibold">Notifications</h3>
+        <button class="btn btn-outline-primary btn-sm" onclick="markAllRead()">
+          Mark all as read
+        </button>
+      </div>
+
+      <!-- Filter -->
+      <div class="mb-3">
+        <select class="form-select w-auto" id="filter" onchange="applyFilter()">
+          <option value="all">All</option>
+          <option value="unread">Unread</option>
+        </select>
+      </div>
+
+      <!-- Notification List -->
+      <div class="card notification-card">
+
+        <!-- Item -->
+        <div class="notification-item unread" data-status="unread">
+          <div class="d-flex gap-3">
+            <div class="icon-box icon-course">
+              <i class="bi bi-book"></i>
+            </div>
+            <div class="flex-grow-1">
+              <div class="fw-semibold">New lesson available</div>
+              <div class="text-muted small">
+                Lesson 5 has been added to <strong>JavaScript Fundamentals</strong>
+              </div>
+            </div>
+            <small class="text-muted">5m ago</small>
+          </div>
+        </div>
+
+        <div class="notification-item unread" data-status="unread">
+          <div class="d-flex gap-3">
+            <div class="icon-box icon-alert">
+              <i class="bi bi-exclamation-triangle"></i>
+            </div>
+            <div class="flex-grow-1">
+              <div class="fw-semibold">Password reminder</div>
+              <div class="text-muted small">
+                Please update your password to keep your account secure
+              </div>
+            </div>
+            <small class="text-muted">1h ago</small>
+          </div>
+        </div>
+
+        <div class="notification-item" data-status="read">
+          <div class="d-flex gap-3">
+            <div class="icon-box icon-update">
+              <i class="bi bi-arrow-repeat"></i>
+            </div>
+            <div class="flex-grow-1">
+              <div class="fw-semibold">Platform update</div>
+              <div class="text-muted small">
+                We’ve improved course recommendations for you
+              </div>
+            </div>
+            <small class="text-muted">Yesterday</small>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <script>
+    function markAllRead() {
+      document.querySelectorAll('.notification-item').forEach(item => {
+        item.classList.remove('unread');
+        item.dataset.status = 'read';
+      });
+    }
+
+    function applyFilter() {
+      const filter = document.getElementById('filter').value;
+      document.querySelectorAll('.notification-item').forEach(item => {
+        if (filter === 'unread' && item.dataset.status !== 'unread') {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'block';
+        }
+      });
+    }
+  </script>
+
+
+  <!-- JS: Active Menu -->
+  <script>
+    document.querySelectorAll('#sidebarMenu .nav-link').forEach(link => {
+      link.addEventListener('click', function () {
+        document.querySelectorAll('#sidebarMenu .nav-link')
+          .forEach(el => el.classList.remove('active'));
+
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
