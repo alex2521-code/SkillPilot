@@ -288,12 +288,24 @@
             </div>
 
             <!-- Terms Agreement -->
+             <!--
             <div class="form-check mb-4">
               <input class="form-check-input" type="checkbox" id="agreeTerms">
               <label class="form-check-label" for="agreeTerms">
-                I agree to the <a href="#" target="_blank">Terms & Conditions</a>
+                I agree to the <a href="#" >Terms & Conditions</a>
               </label>
-            </div>
+            </div>-->
+            <!-- Terms Agreement -->
+<div class="form-check mb-4">
+  <input class="form-check-input" type="checkbox" id="agreeTerms">
+  <label class="form-check-label" for="agreeTerms">
+    I agree to the
+    <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">
+      Terms &amp; Conditions
+    </a>
+  </label>
+</div>
+
 
             <!-- Actions -->
             <div class="d-flex gap-2">
@@ -326,6 +338,63 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Terms & Conditions Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-semibold">Terms & Conditions</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <p class="text-muted small">
+          Last updated: 20 April 2026
+        </p>
+
+        <h6>1. Introduction</h6>
+        <p class="text-muted">
+          These Terms & Conditions govern your access to and use of our online
+          course platform. By enrolling in a course, you agree to comply with
+          these terms.
+        </p>
+
+        <h6>2. Course Access</h6>
+        <p class="text-muted">
+          Course content is provided for personal and non-commercial use only.
+          You may not copy, share, or redistribute materials without permission.
+        </p>
+
+        <h6>3. Payment & Refunds</h6>
+        <p class="text-muted">
+          Refund policies depend on the course provider. Free courses do not
+          include refunds.
+        </p>
+
+        <h6>4. Certificates</h6>
+        <p class="text-muted">
+          Certificates are issued upon successful completion of course
+          requirements.
+        </p>
+
+        <h6>5. Privacy</h6>
+        <p class="text-muted">
+          We process personal data according to our Privacy Policy.
+        </p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
 
   <!-- Logic -->
   <script>
