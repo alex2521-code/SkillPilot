@@ -479,7 +479,7 @@
         data-bs-backdrop="static"
         data-bs-keyboard="false">
 
-        <div class="modal-dialog modal-xxl modal-dialog-centered" style="opacity: 0.98;">
+        <div class="modal-dialog modal-xxl modal-dialog-centered" style="opacity: 0.99;">
             <div class="modal-content glass-modal">
 
                 <div class="modal-header border-0 pb-1 pt-1">
@@ -496,7 +496,7 @@
                                 <div class="text-muted2 mb-2">Step 1 of 3</div>
                                 <h3 class="fw-semibold">คุณสนใจเรียนรู้อะไรบ้าง?</h3>
                                 <p class="text-muted2">
-                                    เลือกอย่างน้อย 3 หัวข้อ เพื่อให้ระบบแนะนำเนื้อหาที่เหมาะกับคุณ
+                                    เลือกอย่างน้อย 3 หัวข้อจากทั้งหมด 12 หัวข้อ เพื่อให้ระบบแนะนำเนื้อหาที่เหมาะกับคุณ
                                 </p>
                             </div>
 
@@ -586,14 +586,12 @@
                             </div>
                         </div>
 
-
                     </div>
                 </div>
 
-                <div class="modal-footer border-0 justify-content-between align-items-center pt-1 pb-1">
+                <div class="modal-footer border-0 justify-content-between align-items-center pt-1 pb-1 sectionWelcome">
 
-                    <div id="status">เลือกแล้ว 0 / 5</div>
-
+                    <div id="status">เลือกแล้ว 0 / 3</div>
                     <button id="btnContinue" class="btn btn-primary btn-disabled active pt-2 pb-2">
                         Continue
                     </button>
@@ -780,6 +778,7 @@
                 let profile = new Profile();
                 profile.state.profile.step = 2;
                 let writer = $("#glassModal")
+                writer.find(".pnlProfile").remove();
                 writer.find(".sectionWelcome").addClass("d-none");
 
 
@@ -812,7 +811,7 @@
             }
             this.htmlPanelProfile = `
 
-<div class="container pnlProfile p-0">
+<div class="container pnlProfile p-0 pb-3">
     <div class="row justify-content-center">
         <div class="col-lg-8">
 
@@ -831,8 +830,8 @@
                     <div class="step-name fw-bold" style="font-size: 12px;">Personal Info</div>
                 </div>
                 <div class="stepper-item" id="s3">
-                    <div class="step-counter text-muted">3</div>
-                    <div class="step-name text-muted2" style="font-size: 12px;">Preferences</div>
+                    <div class="step-counter bg-secondary">3</div>
+                    <div class="step-name" style="font-size: 12px;">Preferences</div>
                 </div>
             </div>
 
@@ -956,12 +955,11 @@
 
                         $("#s2").addClass("active").removeClass("completed");
                         $("#s3").removeClass("active completed");
+                        $("#s3").find(".step-counter").addClass("bg-secondary");
 
                     } else if (step == 2) {
-                        profile.state.profile.step = 1;
-
-                        writer.find(".pnlProfile").remove();
                         //alert("go to welcome");
+                        writer.find(".pnlProfile").remove();
                         writer.find(".sectionWelcome").removeClass("d-none");
                     }
 
@@ -979,6 +977,7 @@
 
                         $("#s2").addClass("completed").removeClass("active");
                         $("#s3").addClass("active");
+                        $("#s3").find(".step-counter").removeClass("bg-secondary");
 
                     } else if (step == 3) {
                         writer.find("#step3Content").removeClass("d-none");
