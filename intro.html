@@ -319,7 +319,7 @@
             }
         }
 
-    
+
         /* ===== PROGRESS BAR ===== */
         .stepper-wrapper {
             display: flex;
@@ -327,6 +327,7 @@
             margin-bottom: 30px;
             position: relative;
         }
+
         .stepper-item {
             position: relative;
             display: flex;
@@ -335,6 +336,7 @@
             flex: 1;
             z-index: 2;
         }
+
         .step-counter {
             width: 35px;
             height: 35px;
@@ -348,11 +350,13 @@
             margin-bottom: 6px;
             transition: 0.3s;
         }
+
         .stepper-item.active .step-counter {
             background: #4f46e5;
             color: white;
             border-color: #4f46e5;
         }
+
         .stepper-item.completed .step-counter {
             background: #10b981;
             color: white;
@@ -378,17 +382,24 @@
         }
 
         /* ===== FORM ELEMENTS ===== */
-        .form-label { font-weight: 1000; font-size: 0.9rem; color: #64748b; text-align: left;}
+        .form-label {
+            font-weight: 1000;
+            font-size: 0.9rem;
+            color: #64748b;
+            text-align: left;
+        }
+
         .form-control, .form-select {
             border-radius: 10px;
             padding: 12px 15px;
             border: 1px solid #e2e8f0;
             background-color: #fcfcfc;
         }
-        .form-control:focus {
-            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-            border-color: #6366f1;
-        }
+
+            .form-control:focus {
+                box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+                border-color: #6366f1;
+            }
 
         /* ===== INTEREST CARDS ===== */
         .interest-card {
@@ -405,16 +416,18 @@
             justify-content: center;
             font-weight: 500;
         }
-        .interest-card:hover {
-            transform: translateY(-3px);
-            border-color: #c7d2fe;
-        }
-        .interest-card.active {
-            background: #eef2ff;
-            border-color: #4f46e5;
-            color: #4f46e5;
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1);
-        }
+
+            .interest-card:hover {
+                transform: translateY(-3px);
+                border-color: #c7d2fe;
+            }
+
+            .interest-card.active {
+                background: #eef2ff;
+                border-color: #4f46e5;
+                color: #4f46e5;
+                box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1);
+            }
 
         /* ===== BUTTONS ===== */
         .btn-primary {
@@ -425,14 +438,33 @@
             font-weight: 600;
             transition: transform 0.2s;
         }
-        .btn-primary:hover { transform: scale(1.02); opacity: 0.95; }
-        .btn-light { border-radius: 12px; padding: 12px 30px; background: #f1f5f9; }
+
+            .btn-primary:hover {
+                transform: scale(1.02);
+                opacity: 0.95;
+            }
+
+        .btn-light {
+            border-radius: 12px;
+            padding: 12px 30px;
+            background: #f1f5f9;
+        }
 
         /* ANIMATIONS */
-        .fade-step { animation: fadeInRight 0.4s ease-out; }
+        .fade-step {
+            animation: fadeInRight 0.4s ease-out;
+        }
+
         @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(15px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
@@ -447,7 +479,7 @@
         data-bs-backdrop="static"
         data-bs-keyboard="false">
 
-        <div class="modal-dialog modal-xxl modal-dialog-centered" style="opacity:0.98;">
+        <div class="modal-dialog modal-xxl modal-dialog-centered" style="opacity: 0.98;">
             <div class="modal-content glass-modal">
 
                 <div class="modal-header border-0 pb-1 pt-1">
@@ -455,7 +487,7 @@
                     <button type="button" class="btn-close btn-close-white"></button>
                 </div>
 
-                <div class="modal-body text-center py-2">
+                <div class="modal-body text-center py-2 p-0">
                     <div class="sectionWelcome">
                         <div class="main p-2 ">
 
@@ -474,108 +506,105 @@
                             </div>
 
                             <!-- Grid -->
-                            <div class="grid" id="grid">
 
-                                <div class="card-select" data-value="Programming">
-                                    <i class="bi bi-code-slash"></i>
-                                    <div>Programming</div>
-                                    <div class="checkmark"><i class="bi bi-check-circle-fill"></i></div>
+                            <div class="p-4 overflow-auto" style="height: calc(100vh - 380px);">
+                                <div class="grid" id="grid">
+
+                                    <div class="card-select p-1" data-value="Programming">
+                                        <i class="bi bi-code-slash"></i>
+                                        <div>Programming</div>
+                                        <div class="checkmark"><i class="bi bi-check-circle-fill"></i></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Data Science">
+                                        <i class="bi bi-bar-chart"></i>
+                                        <div>Data Science</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="AI">
+                                        <i class="bi bi-cpu"></i>
+                                        <div>AI</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Cybersecurity">
+                                        <i class="bi bi-shield-lock"></i>
+                                        <div>Cybersecurity</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Cloud">
+                                        <i class="bi bi-cloud"></i>
+                                        <div>Cloud</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Business">
+                                        <i class="bi bi-briefcase"></i>
+                                        <div>Business</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Finance">
+                                        <i class="bi bi-cash"></i>
+                                        <div>Finance</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="UX/UI">
+                                        <i class="bi bi-palette"></i>
+                                        <div>UX/UI</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Marketing">
+                                        <i class="bi bi-megaphone"></i>
+                                        <div>Marketing</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Language">
+                                        <i class="bi bi-translate"></i>
+                                        <div>Language</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Engineering">
+                                        <i class="bi bi-gear"></i>
+                                        <div>Engineering</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
+                                    <div class="card-select p-1" data-value="Health">
+                                        <i class="bi bi-heart-pulse"></i>
+                                        <div>Health</div>
+                                        <div class="checkmark"></div>
+                                    </div>
+
                                 </div>
-
-                                <div class="card-select" data-value="Data Science">
-                                    <i class="bi bi-bar-chart"></i>
-                                    <div>Data Science</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="AI">
-                                    <i class="bi bi-cpu"></i>
-                                    <div>AI</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="Cybersecurity">
-                                    <i class="bi bi-shield-lock"></i>
-                                    <div>Cybersecurity</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="Cloud">
-                                    <i class="bi bi-cloud"></i>
-                                    <div>Cloud</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="Business">
-                                    <i class="bi bi-briefcase"></i>
-                                    <div>Business</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="Finance">
-                                    <i class="bi bi-cash"></i>
-                                    <div>Finance</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="UX/UI">
-                                    <i class="bi bi-palette"></i>
-                                    <div>UX/UI</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="Marketing">
-                                    <i class="bi bi-megaphone"></i>
-                                    <div>Marketing</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="Language">
-                                    <i class="bi bi-translate"></i>
-                                    <div>Language</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="Engineering">
-                                    <i class="bi bi-gear"></i>
-                                    <div>Engineering</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
-                                <div class="card-select" data-value="Health">
-                                    <i class="bi bi-heart-pulse"></i>
-                                    <div>Health</div>
-                                    <div class="checkmark"></div>
-                                </div>
-
                             </div>
                         </div>
 
-                        <!-- Bottom bar -->
-                        <div class="bottom-bar d-flex justify-content-between align-items-center">
-                            <div id="status">เลือกแล้ว 0 / 5</div>
 
-                            <button id="btnContinue" class="btn btn-primary btn-disabled">
-                                Continue
-                            </button>
-                        </div>
-
-                        <!-- Loading -->
-                        <div class="loading" id="loading">
-                            Loading...
-                        </div>
                     </div>
                 </div>
 
-                <div class="modal-footer border-0 justify-content-center pb-4">
-                    <div class="px-5">&nbsp;</div>
+                <div class="modal-footer border-0 justify-content-between align-items-center pt-1 pb-1">
+
+                    <div id="status">เลือกแล้ว 0 / 5</div>
+
+                    <button id="btnContinue" class="btn btn-primary btn-disabled active pt-2 pb-2">
+                        Continue
+                    </button>
+
                 </div>
 
             </div>
         </div>
     </div>
 
-    <div class="container mt-4 rounded p-2" style="background-color:aliceblue;opacity:0.75;">
+    <div class="container mt-4 rounded p-2" style="background-color: aliceblue; opacity: 0.75;">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex gap-3">
                 <img src="images/logo/Logo_MHESI.png" class="header-logo" />
@@ -754,11 +783,11 @@
                 writer.find(".sectionWelcome").addClass("d-none");
 
 
-    
+
                 writer.find(".modal-body").append(profile.htmlPanelProfile);
                 profile.scriptPanelProfile($("#glassModal"));
-                
-   
+
+
 
 
                 //setTimeout(function () {
@@ -783,7 +812,7 @@
             }
             this.htmlPanelProfile = `
 
-<div class="container py-1 pnlProfile">
+<div class="container pnlProfile p-0">
     <div class="row justify-content-center">
         <div class="col-lg-8">
 
@@ -807,7 +836,7 @@
                 </div>
             </div>
 
-            <div id="regForm" class="card form-card p-4 p-md-4">
+            <div id="regForm" class="card form-card p-2 pt-3">
 
                 <div id="step2Content" class="fade-step stepContent">
                     <h5 class="section-title mb-2">Applicant Information</h5>
@@ -878,10 +907,10 @@
                 </div>
 
                 <div class="d-flex justify-content-between mt-2 border-top pt-2">
-                    <button type="button" id="prevBtn" class="btn btn-light text-secondary shadow">
+                    <button type="button" id="prevBtn" class="btn btn-light text-secondary shadow col-5 p-0 pt-2 pb-2">
                         <i class="bi bi-arrow-left me-2"></i>Back
                     </button>
-                    <button type="button" id="nextBtn" class="btn btn-light px-5 shadow">
+                    <button type="button" id="nextBtn" class="btn btn-light shadow col-5 p-0 pt-2 pb-2">
                         Next <i class="bi bi-arrow-right ms-2"></i>
                     </button>
                 </div>
@@ -920,7 +949,7 @@
                 writer.find("#prevBtn").off('click').on('click', () => {
                     let step = profile.state.profile.step;
                     writer.find('.stepContent').addClass("d-none");
-                    writer.find("#nextBtn").html('Next <i class="bi bi-arrow-right ms-2"></i>');                 
+                    writer.find("#nextBtn").html('Next <i class="bi bi-arrow-right ms-2"></i>');
                     if (step == 3) {
                         writer.find("#step2Content").removeClass("d-none");
                         profile.state.profile.step = 2;
@@ -930,7 +959,7 @@
 
                     } else if (step == 2) {
                         profile.state.profile.step = 1;
- 
+
                         writer.find(".pnlProfile").remove();
                         //alert("go to welcome");
                         writer.find(".sectionWelcome").removeClass("d-none");
@@ -946,7 +975,7 @@
                     if (step == 2) {
                         writer.find("#step3Content").removeClass("d-none");
                         profile.state.profile.step = 3;
-                        writer.find("#nextBtn").html('Submit Registration <i class="bi bi-check-lg ms-2"></i>');
+                        writer.find("#nextBtn").html('Submit <i class="bi bi-check-lg ms-2"></i>');
 
                         $("#s2").addClass("completed").removeClass("active");
                         $("#s3").addClass("active");
@@ -955,7 +984,7 @@
                         writer.find("#step3Content").removeClass("d-none");
                         window.location.href = "dashboard.html";
                     }
-                   
+
 
                 });
 
@@ -963,7 +992,7 @@
 
         }
 
-        
+
 
 
     </script>
