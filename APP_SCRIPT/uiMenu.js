@@ -20,6 +20,8 @@
                     <a class="nav-link" href="certificates.html"><i class="bi bi-patch-check"></i>Certificates</a>
                     <a class="nav-link" href="notifications.html"><i class="bi bi-bell"></i>Notifications</a>
                     <a class="nav-link" href="profile.html"><i class="bi bi-person-circle"></i>Profile</a>
+                    <hr />
+                    <a class="nav-link" href="index.html"><i class="bi bi-box-arrow-right"></i>Logout</a>
                 </nav>
 
                 <div class="mt-auto p-3 border-top d-flex align-items-center gap-2">
