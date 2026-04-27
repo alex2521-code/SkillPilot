@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -27,19 +27,34 @@
 </body>
 </html>
 <script src="APP_SCRIPT/uiMenu.js?ver<%=DateTime.Now.Ticks.ToString()%>"  type="text/javascript" ></script>
-<script src="APP_SCRIPT/uiCourses.js?ver<%=DateTime.Now.Ticks.ToString()%>"  type="text/javascript" ></script>
-
+<script src="APP_SCRIPT/uiMyCourses.js?ver<%=DateTime.Now.Ticks.ToString()%>"  type="text/javascript" ></script>
 <script defer>
 
     $(document).ready(() => {
 
         let uiMnu = new uiMenu();
-        let uiCor = new uiCourses();
+        let uiMyCourse = new uiMyCourses();
 
         uiMnu.panelMenu($(".appMenu"));
-        uiCor.panelCourses($(".appBody"));
+        uiMyCourse.panelMyCourses($(".appBody"));
   
     });
 
 </script>
 
+    <!-- ================================= SCRIPT ================================ -->
+    <script>
+        function showTable() {
+            document.getElementById('tableView').classList.remove('d-none');
+            document.getElementById('cardView').classList.add('d-none');
+        }
+        function showCards() {
+            document.getElementById('cardView').classList.remove('d-none');
+            document.getElementById('tableView').classList.add('d-none');
+        }
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('statusFilter').value = 'all';
+            document.getElementById('categoryFilter').value = 'all';
+        }
+    </script>

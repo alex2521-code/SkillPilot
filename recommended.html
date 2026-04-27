@@ -12,7 +12,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
 
     <link href="APP_STYLE/appStyle.css" rel="stylesheet">
-    
 </head>
 
 <body>
@@ -27,25 +26,19 @@
 
 </body>
 </html>
+<script src="APP_SCRIPT/uiMenu.js?ver<%=DateTime.Now.Ticks.ToString()%>"  type="text/javascript" ></script>
 <script src="APP_SCRIPT/uiCourses.js?ver<%=DateTime.Now.Ticks.ToString()%>"  type="text/javascript" ></script>
-<script src="APP_SCRIPT/uiDashboard.js?ver<%=DateTime.Now.Ticks.ToString()%>" type="text/javascript" ></script>
-<script src="APP_SCRIPT/uiMenu.js?ver<%=DateTime.Now.Ticks.ToString()%>" type="text/javascript" ></script>
-<script>
+<script src="APP_SCRIPT/uiRecommended.js?ver<%=DateTime.Now.Ticks.ToString()%>"  type="text/javascript" ></script>
+<script defer>
 
     $(document).ready(() => {
-        let uiDab = new uiDashboard();
+
         let uiMnu = new uiMenu();
+        let uiRc = new uiRecommended();
 
         uiMnu.panelMenu($(".appMenu"));
-        uiDab.panelDashboard($(".appBody"));
+        uiRc.panelRecommended($(".appBody"));
   
     });
 
-
-
-
-
-
 </script>
-
-

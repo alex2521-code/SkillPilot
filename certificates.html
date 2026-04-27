@@ -1,343 +1,180 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Layout</title>
-  <!--<meta name="viewport" content="width=device-width, initial-scale=0.7">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aFTI Courses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
 
-  <!-- Bootstrap 5 + Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-  <style>
-    body {
-      background-color: #f5f7fb;
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-    }
-
-    .certificate-card {
-      border: none;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-      color: #fff;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      transition: transform .2s;
-    }
-
-    .certificate-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .certificate-badge {
-      background-color: #facc15;
-      color: #1e3a8a;
-      font-weight: 600;
-    }
-
-    .certificate-preview {
-      background: #fff;
-      color: #1f2937;
-      border-radius: 14px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .certificate-title {
-      font-family: "Georgia", serif;
-      letter-spacing: 1px;
-    }
-
-
-    /* ===== Sidebar ===== */
-    .sidebar {
-      width: 260px;
-      height: 100vh;
-      background: #ffffff;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, .05);
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sidebar .nav-link {
-      color: #374151;
-      border-radius: 10px;
-      margin: 4px 12px;
-      font-weight: 500;
-      position: relative;
-      transition: all 0.25s ease;
-    }
-
-    /* Hover */
-    .sidebar .nav-link:hover {
-      background: #f1f5ff;
-      color: #4f46e5;
-      transform: translateX(5px);
-      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
-    }
-
-    .sidebar .nav-link i {
-      margin-right: 10px;
-      transition: all 0.25s ease;
-    }
-
-    .sidebar .nav-link:hover i {
-      transform: scale(1.1);
-    }
-
-    /* Left border effect */
-    .sidebar .nav-link::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 60%;
-      background: #4f46e5;
-      border-radius: 0 4px 4px 0;
-      transition: width 0.25s ease;
-    }
-
-    .sidebar .nav-link:hover::before {
-      width: 4px;
-    }
-
-    /* Active */
-    .sidebar .nav-link.active {
-      background: linear-gradient(90deg, #eef2ff, #f8faff);
-      color: #4f46e5;
-    }
-
-    .sidebar .nav-link.active::before {
-      width: 4px;
-    }
-
-    /* ===== Header ===== */
-    .topbar {
-      height: 64px;
-      background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
-      margin-left: 260px;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .search-input {
-      max-width: 320px;
-    }
-
-    /* ===== Content ===== */
-    .content {
-      margin-left: 260px;
-      margin-top: 0px;
-      padding: 24px;
-    }
-
-    /* Avatar */
-    .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #4f46e5;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-  </style>
+    <link href="APP_STYLE/appStyle.css" rel="stylesheet">
 </head>
 
+       <style>
+        body {
+            background: #f5f7fa;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Card Certificate */
+        .certificate-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Top Design */
+/*        .certificate-header {
+            height: 120px;
+            background: linear-gradient(135deg, #0d3b66, #1e6091);
+            position: relative;
+        }*/
+
+
+.certificate-header {
+    height: 120px;
+    position: relative;
+    background: linear-gradient(135deg, #4b0082, #6a0dad, #8a2be2);
+    box-shadow: inset 0 -10px 20px rgba(255,255,255,0.15),
+                inset 0 10px 20px rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+/* แสงเงาวิ่ง */
+.certificate-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.25),
+        rgba(255,255,255,0.05)
+    );
+    transform: skewX(-25deg);
+}
+
+.certificate-header::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.3), rgba(0,0,0,0.25));
+    transform: skewY(-25deg);
+}
+/*            .certificate-header::after {
+                content: "";
+                position: absolute;
+                bottom: -40px;
+                left: 0;
+                width: 100%;
+                height: 80px;
+                background: #fff;
+                transform: skewY(-5deg);
+            }*/
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Body */
+        .certificate-body {
+            padding: 40px 25px 25px;
+            text-align: center;
+        }
+
+        .certificate-title {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .certificate-sub {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .certificate-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 34px;
+            color: #0d3b66;
+            border-bottom: 2px dotted #999;
+            display: inline-block;
+            margin: 15px 0;
+            padding-bottom: 5px;
+        }
+
+        /* Footer */
+        .certificate-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            font-size: 12px;
+        }
+
+        .footer-line {
+            border-top: 1px dotted #000;
+            width: 120px;
+            margin: auto;
+            margin-bottom: 5px;
+        }
+
+        /* Badge */
+        .badge-award {
+            position: absolute;
+            top: 90px;
+            right: 20px;
+            background: gold;
+            color: #000;
+            font-size: 10px;
+            padding: 8px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        }
+    </style>
+
+
+
 <body>
+    <!-- Content MENU -->
+    <div class="appMenu">add Menu heare by .appMenu</div>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-
-    <div class="p-3 fw-bold fs-5 text-primary">
-      <img width='80' src='project.png' class='me-2'></img> SkillPilot
-    </div>
+    <!-- Content BODY -->
+    <div class="content appBody">Load content here by .appBody</div>
 
 
-    <nav class="nav flex-column" id="sidebarMenu">
 
-      <a class="nav-link" href="dashboard.html">
-        <i class="bi bi-speedometer2"></i> Dashboard
-      </a>
-
-      <a class="nav-link" href="courses.html">
-        <i class="bi bi-book"></i> Courses
-      </a>
-
-      <a class="nav-link" href="recommendedCourses.html">
-        <i class="bi bi-stars"></i> Recommended
-      </a>
-
-      <a class="nav-link" href="favoriteCourses.html">
-        <i class="bi bi-heart"></i> Favorite
-      </a>
-      <a class="nav-link" href="courseHistory.html">
-        <i class="bi bi-clock-history"></i> My Enrollment
-      </a>
-      <a class="nav-link active" href="certificates.html">
-        <i class="bi bi-patch-check"></i> Certificates
-      </a>
-
-      <a class="nav-link" href="notifications.html">
-        <i class="bi bi-bell"></i> Notifications
-      </a>
-
-      <a class="nav-link" href="profile.html">
-        <i class="bi bi-person-circle"></i> Profile
-      </a>
-
-    </nav>
-
-
-    <!-- Account -->
-    <div class="mt-auto p-3 border-top d-flex align-items-center gap-3">
-      <div class="avatar">SP</div>
-      <div>
-        <div class="fw-semibold">Admin User</div>
-        <small class="text-muted">admin@tailpanel.com</small>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Header -->
-  <div class="topbar">
-    <input class="form-control search-input" placeholder="Search...">
-
-    <div class="d-flex align-items-center gap-3">
-      <i class="bi bi-gear fs-5"></i>
-      <i class="bi bi-bell fs-5"></i>
-      <div class="avatar">SP</div>
-    </div>
-  </div>
-
-  <!-- Content -->
-  <div class="content">
-    <div class='container py-2'>
-      <!-- Header -->
-      <div class="mb-4">
-        <h3 class="fw-semibold">My Certificates</h3>
-        <p class="text-muted">Your achievements and completed courses</p>
-      </div>
-
-      <!-- Certificates Grid -->
-      <div class="row g-4">
-
-        <!-- Certificate Card -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card certificate-card p-4 h-100">
-            <span class="badge certificate-badge align-self-start mb-3">
-              Completed
-            </span>
-
-            <h5 class="certificate-title mb-2">
-              JavaScript Fundamentals
-            </h5>
-            <p class="small mb-3">
-              Instructor: John Doe
-            </p>
-
-            <!-- Preview -->
-            <div class="certificate-preview mb-3">
-              <h6 class="fw-bold">Certificate of Completion</h6>
-              <p class="mb-1">Awarded to</p>
-              <strong>John Doe</strong>
-              <p class="small mt-2">Issued: Apr 2026</p>
-            </div>
-
-            <div class="d-flex gap-2 mt-auto">
-              <button class="btn btn-light btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#certificateModal">
-                View
-              </button>
-              <button class="btn btn-warning btn-sm flex-fill">
-                Download PDF
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Another Certificate -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card certificate-card p-4 h-100">
-            <span class="badge certificate-badge align-self-start mb-3">
-              Completed
-            </span>
-
-            <h5 class="certificate-title mb-2">
-              UI/UX Design Basics
-            </h5>
-            <p class="small mb-3">
-              Instructor: Jane Smith
-            </p>
-
-            <div class="certificate-preview mb-3">
-              <h6 class="fw-bold">Certificate of Completion</h6>
-              <p class="mb-1">Awarded to</p>
-              <strong>John Doe</strong>
-              <p class="small mt-2">Issued: Mar 2026</p>
-            </div>
-
-            <div class="d-flex gap-2 mt-auto">
-              <button class="btn btn-light btn-sm flex-fill" data-bs-toggle="modal" data-bs-target="#certificateModal">
-                View
-              </button>
-              <button class="btn btn-warning btn-sm flex-fill">
-                Download PDF
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- Certificate Modal -->
-  <div class="modal fade" id="certificateModal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body p-4">
-
-          <div class="text-center border p-4">
-            <h3 class="certificate-title mb-3">
-              Certificate of Completion
-            </h3>
-            <p>This certificate is proudly presented to</p>
-            <h4 class="fw-bold mb-3">John Doe</h4>
-            <p>For successfully completing</p>
-            <h5 class="fw-semibold">JavaScript Fundamentals</h5>
-            <p class="mt-4 text-muted">
-              Issued on April 2026
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JS: Active Menu -->
-  <script>
-    document.querySelectorAll('#sidebarMenu .nav-link').forEach(link => {
-      link.addEventListener('click', function () {
-        document.querySelectorAll('#sidebarMenu .nav-link')
-          .forEach(el => el.classList.remove('active'));
-
-        this.classList.add('active');
-      });
-    });
-  </script>
 
 </body>
-
 </html>
+<script src="APP_SCRIPT/uiMenu.js?ver<%=DateTime.Now.Ticks.ToString()%>"  type="text/javascript" ></script>
+<script src="APP_SCRIPT/uiCertificates.js?ver<%=DateTime.Now.Ticks.ToString()%>"  type="text/javascript" ></script>
+<script defer>
+
+    $(document).ready(() => {
+
+        let uiMnu = new uiMenu();
+        let uiCer = new uiCertificates();
+
+        uiMnu.panelMenu($(".appMenu"));
+        uiCer.panelCertificates($(".appBody"));
+  
+    });
+
+</script>
