@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Premium Wave Background</title>
+
+<style>
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #062d8d, #041a4d);
+  overflow: hidden;
+}
+
+svg {
+  position: absolute;
+  inset: 0;
+  width: 120%;
+  height: 100%;
+  opacity: 0;
+}
+
+/* Soft glow */
+.ribbon {
+  filter: blur(0.2px);
+  opacity: 0.6;
+}
+</style>
+
+
+<script src="gsap.min.js"></script>
+</head>
+
+<body>
+
+<svg viewBox="0 0 1920 1080" preserveAspectRatio="none">
+  <defs>
+    <!-- Wave distortion -->
+
+
+<filter id="wave" filterUnits="userSpaceOnUse">
+  <feTurbulence
+    id="turbulence"
+    type="fractalNoise"
+    baseFrequency="0.015 0.08"
+    numOctaves="2"
+    seed="1"
+  />
+  <feDisplacementMap
+    in="SourceGraphic"
+    scale="45"
+  />
+</filter>
+
+
+    <linearGradient id="blueGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a9cff"/>
+      <stop offset="50%" stop-color="#2dd4ff"/>
+      <stop offset="100%" stop-color="#1a9cff"/>
+    </linearGradient>
+  </defs>
+
+
+  <!-- BACK -->
+<path class="ribbon r1"
+  stroke="url(#blueGlow)"
+  stroke-width="60"
+  stroke-opacity="0.25"
+  fill="none"
+  stroke-dasharray="1200"
+  d="M-400 320
+     C 300 260, 800 440, 1400 380
+     S 2400 340, 2800 380" />
+
+<path class="ribbon r2"
+  stroke="url(#blueGlow)"
+  stroke-width="50"
+  stroke-opacity="0.35"
+  fill="none"
+  stroke-dasharray="1200"
+  d="M-400 470
+     C 300 410, 800 590, 1400 530
+     S 2400 490, 2800 530" />
+
+<path class="ribbon r3"
+  stroke="url(#blueGlow)"
+  stroke-width="35"
+  stroke-opacity="0.45"
+  fill="none"
+  stroke-dasharray="1200"
+  d="M-400 620
+     C 300 560, 800 740, 1400 680
+     S 2400 640, 2800 680" />
+
+</svg>
+
+<script>
+gsap.to("svg", { opacity: 1, duration: 1 });
+
+gsap.to(".r1", {
+  strokeDashoffset: -1200,
+  duration: 40,
+  repeat: -1,
+  ease: "none"
+});
+
+gsap.to(".r2", {
+  strokeDashoffset: -1200,
+  duration: 30,
+  repeat: -1,
+  ease: "none"
+});
+
+gsap.to(".r3", {
+  strokeDashoffset: -1200,
+  duration: 22,
+  repeat: -1,
+  ease: "none"
+});
+</script>
+
+</body>
+</html>
