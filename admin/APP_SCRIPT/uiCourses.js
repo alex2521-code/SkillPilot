@@ -500,10 +500,10 @@ function uiCourses() {
 
 <div class="container-fluid">
     <div class="db-breadcrumb">
-        <h4 class="breadcrumb-title">Add Training / Course Proposal</h4>
+        <h4 class="breadcrumb-title">Course Proposal</h4>
         <ul class="db-breadcrumb-list">
             <li>
-                <a href="#" class="btnListCourses">
+                <a href="add-listing.html" class="btnListCourses">
                     <i class="fa fa-home"></i> <b>Courses Admin</b>
                 </a>
             </li>
@@ -730,7 +730,7 @@ function uiCourses() {
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-save"></i> Save
                                 </button>
-                                <button type="button" class="btn btn-outline-secondary">
+                                <button type="button" class="btn btn-outline-secondary ml-2">
                                     Cancel
                                 </button>
                             </div>
