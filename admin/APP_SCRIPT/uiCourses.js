@@ -4,7 +4,7 @@ function uiCourses() {
 	<div class="db-breadcrumb">
 		<h4 class="breadcrumb-title">Courses</h4>
 		<ul class="db-breadcrumb-list">
-			<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="add-listing.html"><i class="fa fa-home"></i><b>Courses Admin</b></a></li>
 			<li>Courses</li>
 		</ul>
 	</div>	
@@ -64,8 +64,8 @@ function uiCourses() {
 									<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	
 								</div>
 								<div class="col-md-12">
-									<a href="#" class="btn green radius-xl outline">Approve</a>
-									<a href="#" class="btn red outline radius-xl ">Cancel</a>
+									<a href="#" class="btn  radius-xl outline btnEdit">Edit</a>
+									<a href="#" class="btn red outline radius-xl btnCancel">Cancel</a>
 								</div>
 							</div>
 							
@@ -119,8 +119,8 @@ function uiCourses() {
 									<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	
 								</div>
 								<div class="col-md-12">
-									<a href="#" class="btn green radius-xl outline">Approve</a>
-									<a href="#" class="btn red outline radius-xl ">Cancel</a>
+									<a href="#" class="btn btnEdit radius-xl outline">Edit</a>
+									<a href="#" class="btn red outline radius-xl btnCancel">Cancel</a>
 								</div>
 							</div>
 							
@@ -174,8 +174,8 @@ function uiCourses() {
 									<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	
 								</div>
 								<div class="col-md-12">
-									<a href="#" class="btn green radius-xl outline">Approve</a>
-									<a href="#" class="btn red outline radius-xl ">Cancel</a>
+									<a href="#" class="btn btnEdit radius-xl outline">Edit</a>
+									<a href="#" class="btn red outline radius-xl btnCancel">Cancel</a>
 								</div>
 							</div>
 							
@@ -229,8 +229,8 @@ function uiCourses() {
 									<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	
 								</div>
 								<div class="col-md-12">
-									<a href="#" class="btn green radius-xl outline">Approve</a>
-									<a href="#" class="btn red outline radius-xl ">Cancel</a>
+									<a href="#" class="btn btnEdit radius-xl outline">Edit</a>
+									<a href="#" class="btn red outline radius-xl btnCancel">Cancel</a>
 								</div>
 							</div>
 							
@@ -245,12 +245,513 @@ function uiCourses() {
     
     `;
 
+	this.pnlListCourseHTML = `
+<style>
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05);
+        }
+        table tbody tr {
+            transition: background-color .2s ease;
+        }
+        table tbody tr:hover {
+            background-color: #f1f3f8;
+        }
+        .table img {
+            width: 60px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: .5rem;
+        }
+</style>
+
+<div class="container-fluid p-4">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <i class="bi bi-house-door me-1"></i> Home
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Courses Admin</li>
+        </ol>
+    </nav>
+
+    <h3 class="mb-4">Manage Courses</h3>
+
+    <!-- Search & Filter Card -->
+
+
+<div class="card mb-4">
+
+
+<div class="card-body p-3">
+    <div class="row align-items-end">
+        <div class="col-lg-6 col-md-8 ms-auto">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search course name...">
+                <button class="btn btn-sm grey outline px-2">
+                    <i class="fa fa-search me-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="card-body p-3">
+
+        <div class="row g-2 align-items-end">
+
+            <div class="col-lg-2 col-md-6">
+                <label class="form-label mb-1 small">Status</label>
+                <select class="form-control">
+                    <option>All Status</option>
+                    <option selected>Pending</option>
+                    <option>Success</option>
+                </select>
+            </div>
+
+            <div class="col-lg-1 col-md-6">
+                <label class="form-label mb-1 small">Year</label>
+                <select class="form-control">
+                    <option value="">All</option>
+                    <option selected>2026</option>
+                    <option>2025</option>
+                    <option>2024</option>
+                    <option>2023</option>
+                </select>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <label class="form-label mb-1 small">Date From</label>
+                <input type="date" class="form-control">
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <label class="form-label mb-1 small">Date To</label>
+                <input type="date" class="form-control">
+            </div>
+
+            <div class="col-lg-2 col-md-12 d-flex gap-2">
+                <button class="btn btn-primary w-100">
+                    <i class="fa fa-filter me-1"></i> Apply
+                </button>
+                <button class="btn btn-outline-secondary w-100 ml-2 gray">
+                    Reset
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+    <!-- Course List Table -->
+    <div class="card">
+        <div class="card-body p-3">
+
+            	<div class="table-responsive">
+	                <button class="btn btn-secondary btnAddCourse mr-2 mb-2  radius-xl">
+                    Add Course
+                </button>		
+                <table class="table align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Thumbnail</th>
+                            <th>Course Name</th>
+                            <th>Teacher</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Created Date</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://picsum.photos/120/90?random=1" alt="">
+                            </td>
+                            <td>PHP for Beginners</td>
+                            <td>Keny White</td>
+                            <td>Backend</td>
+                            <td>$120</td>
+                            <td>
+                                <a href="#" class="btn button-sm blue radius-xl">Pending</a>
+                            </td>
+                            <td>2026-02-15</td>
+                            <td class="text-center">
+
+<div class="d-flex gap-2 justify-content-end">
+    <button class="btn btn-sm btn-outline-secondary outline btnView px-3 py-2 blue" title="View">
+        <i class="fa fa-eye"></i>
+    </button>
+
+    <button class="btn btn-sm btn-outline-primary outline ml-2 px-3 py-2 btnEdit" title="Edit">
+        <i class="fa fa-edit"></i>
+    </button>
+
+    <button class="btn btn-sm btn-danger outline bg-red ml-2 px-3 py-2 btnDel red" title="Cancel">
+        <i class="fa fa-times-circle"></i>
+    </button>
+</div>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <img src="https://picsum.photos/120/90?random=2" alt="">
+                            </td>
+                            <td>Modern JavaScript</td>
+                            <td>Adam Lee</td>
+                            <td>Frontend</td>
+                            <td>$90</td>
+                            <td>
+                                <a href="#" class="btn button-sm blue radius-xl">Pending</a>
+                            </td>
+                            <td>2025-11-03</td>
+                            <td class="text-center">
+
+<div class="d-flex gap-2 justify-content-end">
+    <button class="btn btn-sm btn-outline-secondary outline btnView px-3 py-2 blue" title="View">
+        <i class="fa fa-eye"></i>
+    </button>
+
+    <button class="btn btn-sm btn-outline-primary outline ml-2 px-3 py-2 btnEdit" title="Edit">
+        <i class="fa fa-edit"></i>
+    </button>
+
+    <button class="btn btn-sm btn-danger outline bg-red ml-2 px-3 py-2 btnDel red" title="Cancel">
+        <i class="fa fa-times-circle"></i>
+    </button>
+</div>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <img src="https://picsum.photos/120/90?random=3" alt="">
+                            </td>
+                            <td>Database Design</td>
+                            <td>Sarah Kim</td>
+                            <td>Database</td>
+                            <td>Free</td>
+                            <td>
+                                <a href="#" class="btn button-sm green radius-xl">Success</a>
+                            </td>
+                            <td>2024-06-20</td>
+                            <td class="text-center">
+
+<div class="d-flex gap-2 justify-content-end">
+    <button class="btn btn-sm btn-outline-secondary outline btnView px-3 py-2 blue" title="View">
+        <i class="fa fa-eye"></i>
+    </button>
+
+    <button class="btn btn-sm btn-outline-primary outline ml-2 px-3 py-2 btnEdit" title="Edit">
+        <i class="fa fa-edit"></i>
+    </button>
+
+    <button class="btn btn-sm btn-danger outline bg-red ml-2 px-3 py-2 btnDel red" title="Cancel">
+        <i class="fa fa-times-circle"></i>
+    </button>
+</div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-end mt-3">
+                <nav>
+                    <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item disabled">
+                            <span class="page-link">Previous</span>
+                        </li>
+                        <li class="page-item active">
+                            <span class="page-link">1</span>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+	
+	`;
+
+
 	this.pnlAddCourseHTML = `
+
+<div class="container-fluid">
+    <div class="db-breadcrumb">
+        <h4 class="breadcrumb-title">Add Training / Course Proposal</h4>
+        <ul class="db-breadcrumb-list">
+            <li>
+                <a href="#" class="btnListCourses">
+                    <i class="fa fa-home"></i> <b>Courses Admin</b>
+                </a>
+            </li>
+            <li>Add Course</li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 m-b30">
+            <div class="widget-box">
+                <div class="wc-title">
+                    <h4>Add Training / Course Proposal</h4>
+                </div>
+
+                <div class="widget-inner">
+                    <form class="edit-profile">
+
+                        <!-- 1. Project / Course Information -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-info-circle me-1"></i> 1. Project / Course Information</h3>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Project Name</label>
+                                <input type="text" class="form-control" value="Amazon Q Developer Workshop Series / KIRO">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Number of Participants</label>
+                                <input type="number" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Location</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Training Method</label>
+                                <select class="form-control">
+                                    <option>Lecture</option>
+                                    <option>Workshop</option>
+                                    <option>OJT</option>
+                                    <option>Brainstorming</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Duration</label>
+                                <input type="text" class="form-control" placeholder="e.g. 3 Days / Date Range">
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 2. Principle and Reason -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-bullhorn me-1"></i> 2. Principle and Reason</h3>
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 3. Objectives -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-bullseye me-1"></i> 3. Objectives</h3>
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 4. Target Audience -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-users me-1"></i> 4. Target Audience</h3>
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 5. Course Content -->
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center">
+                                <h3><i class="fa fa-list me-1"></i> 5. Course Content</h3>
+                                <button type="button" class="btn btn-sm btn-outline-primary">
+                                    <i class="fa fa-plus"></i> Add Item
+                                </button>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="row m-t10">
+                                    <div class="col-md-4 form-group">
+                                        <label>Topic Title</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label>Description</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <label>Num of Register</label>
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 6. Instructor -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-chalkboard-teacher me-1"></i> 6. Instructor</h3>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Bio</label>
+                                <textarea class="form-control" rows="2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 7. Assistant Instructor -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-user-friends me-1"></i> 7. Assistant Instructor</h3>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Name</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 8. Schedule -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-calendar-alt me-1"></i> 8. Schedule</h3>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>สถานที่</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Date From</label>
+                                <input type="date" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Date To</label>
+                                <input type="date" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>Time</label>
+                                <input type="text" class="form-control" placeholder="e.g. 09:00 - 16:00">
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 9. Budget -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-wallet me-1"></i> 9. Budget</h3>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Instructor Fee</label>
+                                <input type="number" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Location Cost</label>
+                                <input type="number" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Food Cost</label>
+                                <input type="number" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Registration Fee</label>
+                                <input type="number" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="seperator"></div>
+
+                        <!-- 10. Evaluation Method -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><i class="fa fa-check-double me-1"></i> 10. Evaluation Method</h3>
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row m-t20">
+                            <div class="col-12 d-flex gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-save"></i> Save
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+	`;
+
+	this.pnlAddCourseHTML2 = `
 		<div class="container-fluid">
 			<div class="db-breadcrumb">
 				<h4 class="breadcrumb-title">Add Course</h4>
 				<ul class="db-breadcrumb-list">
-					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+					<li><a href="add-listing.html" class='btnListCourses'><i class="fa fa-home"></i><b>Courses Admin</b></a></li>
 					<li>Add Course</li>
 				</ul>
 			</div>	
@@ -373,7 +874,12 @@ function uiCourses() {
     }
 
     this.onloadPanelCourses = ($writer) => {
-        let $cos = this;     
+        let $cos = this;  
+		$writer.find('.btnCancel').remove();   
+		$writer.find('.btnEdit').off('click').on('click', () =>{
+			$cos.panelAddCourses($writer);
+
+		});
     }
 
 	this.panelAddCourses = ($writer) => {
@@ -386,6 +892,8 @@ function uiCourses() {
     this.onloadPanelAddCourses = ($writer) => {
         let $cos = this;  
 		
+		
+
 		if ($("table#item-add").is('*')) {
 			$('.add-item').on('click', function (e) {
 				e.preventDefault();
@@ -405,4 +913,27 @@ function uiCourses() {
 		
     }
 
+	this.panelListCourses = ($writer) => {
+        let $cos = this;
+        $writer.html($cos.pnlListCourseHTML);
+        $cos.onloadPanelListCourses($writer);
+
+    }
+
+	this.onloadPanelListCourses = ($writer) => {
+		let $cos = this;
+		$writer.find(".btnAddCourse, .btnEdit, .btnDel").off('click').on('click', () => {
+
+			$cos.panelAddCourses($writer);
+
+		});
+
+		$writer.find(".btnView").off('click').on('click', () => {
+
+			$cos.panelCourses($writer);
+			$writer.find(".admin-courses").addClass('d-none');
+			$writer.find(".admin-courses").eq(0).removeClass('d-none');
+
+		});
+	}
 }

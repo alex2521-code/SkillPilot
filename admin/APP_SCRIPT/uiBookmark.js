@@ -201,7 +201,8 @@ function uiBookmark() {
     }
 
     this.onloadPanelBookmark = ($writer) => {
-        let $brk = this;     
+        let $brk = this;  
+		$('a.red').remove();   
     }
 
 
