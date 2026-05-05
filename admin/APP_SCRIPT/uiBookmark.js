@@ -51,7 +51,7 @@ function uiBookmark() {
 											<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	
 										</div>
 										<div class="col-md-12">
-											<a href="#" class="btn radius-xl">View Courses</a>
+											<a href="#" class="btn radius-xl btnView">View Courses</a>
 											<a href="#" class="btn red outline radius-xl ">Cancel</a>
 										</div>
 									</div>
@@ -93,7 +93,7 @@ function uiBookmark() {
 											<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	
 										</div>
 										<div class="col-md-12">
-											<a href="#" class="btn radius-xl">View Courses</a>
+											<a href="#" class="btn radius-xl btnView">View Courses</a>
 											<a href="#" class="btn red outline radius-xl ">Cancel</a>
 										</div>
 									</div>
@@ -135,7 +135,7 @@ function uiBookmark() {
 											<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	
 										</div>
 										<div class="col-md-12">
-											<a href="#" class="btn radius-xl">View Courses</a>
+											<a href="#" class="btn radius-xl btnView">View Courses</a>
 											<a href="#" class="btn red outline radius-xl ">Cancel</a>
 										</div>
 									</div>
@@ -177,7 +177,7 @@ function uiBookmark() {
 											<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et. Sea ut nullam aperiam, mei cu tollit salutatus delicatissimi. </p>	
 										</div>
 										<div class="col-md-12">
-											<a href="#" class="btn radius-xl">View Courses</a>
+											<a href="#" class="btn radius-xl btnView">View Courses</a>
 											<a href="#" class="btn red outline radius-xl ">Cancel</a>
 										</div>
 									</div>
@@ -202,7 +202,15 @@ function uiBookmark() {
 
     this.onloadPanelBookmark = ($writer) => {
         let $brk = this;  
-		$('a.red').remove();   
+		$('a.red').remove();  
+		$writer.find(".btnView").on('click', () => {
+			let $cos = new uiCourses();
+			$cos.panelCoursesDetail($writer);
+			$writer.find(".btnCourses").remove();
+			
+
+		});
+
     }
 
 
